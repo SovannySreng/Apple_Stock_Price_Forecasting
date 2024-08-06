@@ -1,46 +1,55 @@
-
-from src.data_preprocessing import load_data, preprocess_data
-from src.eda import eda
-from src.feature_engineering import feature_engineering
-from src.model_training import train_model
-from src.evaluation import evaluate_model
-from src.visualization import plot_histograms, plot_time_series
-from src.utils import setup_logging, log_error
+import pandas as pd
+import src.eda as eda
+import src.evaluation as eval
+import src.feature_engineering as fe
+import src.model_training as mt
+import src.visualization as viz
+from src.data_preprocessing import load_data, preprocess_data, split_data
 
 def main():
-    setup_logging()
-    
-    try:
-        df = load_data('data/AAPL.csv')  # Use relative path
-        
-        # Perform EDA
-        eda(df)
-        
-        # Preprocess Data
-        df = preprocess_data(df)
-        
-        # Feature Engineering
-        df = feature_engineering(df)
-        
-        # Visualizations
-        num_cols = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
-        date_col = 'Date'
-        value_col = 'Close'
-        
-        plot_histograms(df, num_cols)
-        plot_time_series(df, date_col, value_col)
-        
-        # Train the model
-        X = df.drop(columns=['Close', 'Date'])  # Adjust according to your feature columns
-        y = df['Close']
-        model, x_test, y_test = train_model(X, y)
-        
-        # Evaluate the model
-        evaluate_model(model, x_test, y_test)
-        
-    except Exception as e:
-        log_error(e)
-        print(f"An error occurred: {e}")
+    # Load and preprocess data
+    data = load_data(ticker="AAPL", start_date="2000-01-01", end_date="2022-05-31")
+    df = preprocess_data(data)
 
-if __name__ == "__main__":
+    # EDA
+    eda.plot_line(df, 'Close')
+    eda.decompose_series(df, 'Close')
+    eda.plot_acf_pacf(df, 'Close')
+    is_stationary = eda.check_stationarity(df, 'Close')
+    print(f"Is the series stationary? {is_stationary}")
+
+    # Feature Engineering
+    data = fe.create_features(df)
+
+    # Train ARIMA model
+    arima_model = mt.train_arima_model(df['Close'], order=(1,1,1))
+    forecast = arima_model.get_forecast(2)
+    ypred = forecast.predicted_mean
+    conf_int = forecast.conf_int(alpha=0.05)
+
+    # Evaluate ARIMA model
+    actual = pd.Series([184.40, 185.04], index=pd.to_datetime(['2024-01-01', '2024-02-01']))
+    pred = pd.Series(ypred.values, index=pd.to_datetime(['2024-01-01', '2024-02-01']))
+    mae = eval.evaluate_model(actual, pred)
+    print(f'ARIMA Model MAE: {mae}')
+
+    # Visualize ARIMA forecast
+    forecast_df = pd.DataFrame({
+        'price_actual': actual,
+        'price_predicted': pred,
+        'lower_int': conf_int['lower Close'],
+        'upper_int': conf_int['upper Close']
+    })
+    viz.plot_forecast(df, forecast_df, conf_int)
+
+    # Train XGBoost model
+    features = ['Open', 'High', 'Low', 'Close', 'Volume']
+    xgb_model = mt.train_xgboost_model(data.iloc[:-30], features)
+
+    # Backtest XGBoost model
+    predictions = fe.backtest(data, xgb_model, features)
+    xgb_precision = eval.evaluate_precision(predictions['Target'], predictions['predictions'])
+    print(f'XGBoost Model Precision: {xgb_precision}')
+
+if __name__ == '__main__':
     main()

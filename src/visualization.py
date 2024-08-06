@@ -1,16 +1,10 @@
-
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-def plot_histograms(df: pd.DataFrame, num_cols: list):
-    df[num_cols].hist(figsize=(14, 14))
-    plt.show()
-
-def plot_time_series(df: pd.DataFrame, date_col: str, value_col: str):
-    plt.figure(figsize=(10, 5))
-    plt.plot(df[date_col], df[value_col])
-    plt.title(f'Time Series of {value_col}')
-    plt.xlabel('Date')
-    plt.ylabel(value_col)
+def plot_forecast(data, dp, conf_int):
+    plt.figure(figsize=(10, 6))
+    plt.plot(data['Close'], label='Actual')
+    plt.plot(dp['price_predicted'], label='Predicted', color='orange')
+    plt.fill_between(dp.index, dp['lower_int'], dp['upper_int'], color='k', alpha=0.1)
+    plt.title('Actual vs Predicted Prices')
+    plt.legend()
     plt.show()

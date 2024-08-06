@@ -1,1 +1,48 @@
 2024-08-04 11:29:45,810:ERROR:Error: 'Close'
+2024-08-04 14:53:56,443:ERROR:Error: 'Close'
+2024-08-04 15:04:54,623:ERROR:Error: [Errno 2] No such file or directory: 'data/employee_attrition.csv'
+2024-08-04 15:05:51,032:ERROR:Error: name 'include' is not defined
+2024-08-04 15:07:31,514:ERROR:Error: name 'include' is not defined
+2024-08-04 15:07:58,397:ERROR:Error: plot_time_series() missing 1 required positional argument: 'value_col'
+2024-08-04 15:11:01,892:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:11:01,899:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:11:04,666:ERROR:Error: "['Close'] not found in axis"
+2024-08-04 15:17:38,734:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:17:38,742:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:17:40,857:ERROR:Error: "['Close'] not found in axis"
+2024-08-04 15:19:27,932:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:19:27,937:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:19:30,264:ERROR:Error: "['Close'] not found in axis"
+2024-08-04 15:22:57,032:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:22:57,036:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:22:58,783:ERROR:Error: Input y contains NaN.
+2024-08-04 15:25:05,723:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:25:05,731:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:25:07,218:ERROR:Error: name 'pd' is not defined
+2024-08-04 15:26:09,580:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:26:09,592:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:40:24,179:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 15:40:24,188:INFO:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2024-08-04 16:16:09,109:ERROR:Error: read_csv() got an unexpected keyword argument 'file_path'
+2024-08-04 16:17:49,720:ERROR:Error: 'Close'
+2024-08-04 16:18:49,769:ERROR:Error: 'Close'
+2024-08-04 16:23:45,544:ERROR:Error: 'Close'
+2024-08-04 16:25:41,680:ERROR:Error: 'Close'
+2024-08-04 16:29:15,114:ERROR:Error: 'Close'
+2024-08-04 16:32:29,006:ERROR:Error: [Errno 2] No such file or directory: 'H:/My Drive/BISI II/Data Science/Term Assignments/Apple Stock Price Forecasting/data/AAPL.csv'
+2024-08-04 16:33:06,562:ERROR:Error: [Errno 2] No such file or directory: 'H:/My Drive/BISI II/Data Science/Term Assignments/Apple Stock Price Forecasting/data/AAPL.csv'
+2024-08-04 16:33:37,423:ERROR:Error: 'Close'
+2024-08-04 19:10:13,136:ERROR:Error: 'Close'
+2024-08-04 19:13:49,510:ERROR:Error: [Errno 2] No such file or directory: 'H:/My Drive/BISI II/Data Science/Term Assignments/Apple Stock Price Forecasting/data/AAPL.csv'
+2024-08-04 19:14:48,345:ERROR:Error: 'Close'
+2024-08-04 19:18:12,807:ERROR:Error: 'Close'
+2024-08-04 19:19:51,403:ERROR:Error: 'Close'
+2024-08-04 19:21:48,571:ERROR:Error: 'Close'
+2024-08-04 19:29:29,800:ERROR:Error: 'Close'
+2024-08-04 19:31:08,334:ERROR:Error: 'Close'
+2024-08-04 19:33:02,129:ERROR:Error: 'Close'
+2024-08-04 19:34:19,375:ERROR:Error: 'Close'
+2024-08-04 19:39:19,183:ERROR:Error: name 'create_features' is not defined
+2024-08-04 19:42:48,629:ERROR:Error: 'TXN'
+2024-08-04 19:45:42,854:ERROR:Error: 'TXN'
+2024-08-04 19:47:02,892:ERROR:Error: 'TXN'

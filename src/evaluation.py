@@ -1,7 +1,8 @@
 
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error, precision_score
 
-def evaluate_model(model, x_test, y_test):
-    y_pred = model.predict(x_test)
-    print("Mean Squared Error:", mean_squared_error(y_test, y_pred))
-    print("R2 Score:", r2_score(y_test, y_pred))
+def evaluate_model(actual, predicted):
+    return mean_absolute_error(actual, predicted)
+
+def evaluate_precision(actual, predicted):
+    return precision_score(actual, predicted)
